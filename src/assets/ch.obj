@@ -1,6 +1,6 @@
 # Blender 4.4.3
 # www.blender.org
-mtllib chch rivelle2.mtl
+mtllib ch.mtl
 o Plane
 v 0.000000 -0.066535 0.098182
 v -0.000000 -0.066535 -0.216537
