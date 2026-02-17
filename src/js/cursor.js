@@ -1,15 +1,27 @@
 const cursor = document.getElementById('cursor');
-let hue = 0;
+const isMobile = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth <= 768);
 
-document.addEventListener('mousemove', function(e) {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-});
+if (!isMobile) {
+  function setCursorSize() {
+    const size = Math.max(150, Math.min(window.innerWidth, window.innerHeight) * 0.25);
+    cursor.style.width = size + 'px';
+    cursor.style.height = size + 'px';
+  }
+
+  document.addEventListener('mousemove', function(e) {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+
+  setCursorSize();
+  window.addEventListener('resize', setCursorSize);
+}
+
+let hue = 0;
 
 function animate() {
   hue = (hue + 1) % 360;
-  // sepia turns white to yellow, saturate boosts it, then hue-rotate shifts the color
-  cursor.style.filter = 'sepia(1) saturate(5) hue-rotate(' + hue + 'deg)';
+  cursor.style.filter = 'sepia(1) saturate(20) hue-rotate(' + hue + 'deg) brightness(1.1)';
   requestAnimationFrame(animate);
 }
 
