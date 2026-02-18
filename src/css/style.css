@@ -1,0 +1,106 @@
+.sketch-container{
+  display: flex;
+  flex: wrap;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+}
+.overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.0333;
+}
+.overlay canvas{
+  display: block;
+}
+/* general css */
+body{
+  background-color: rgb(185,182,184);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  cursor: none;
+}
+
+#cursor{
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+/* */
+@media only screen and (min-width: 980px) and (max-width: 1000px) and (min-height: 1600px){
+  .sketch-container{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+  .canvas-container{
+    min-width: 1500px;
+    aspect-ratio: 1;
+    position: relative;
+  }
+  canvas{
+    min-width: 1500px;
+    min-height: 1500px;
+    aspect-ratio: 1;
+  }
+  .breaker{
+    height: 15vh;
+  }
+}
+
+/* mobile */
+@media only screen and (max-width: 768px) {
+  body {
+    cursor: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  #cursor {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: auto;
+    width: 80vw;
+    height: auto;
+    z-index: 1;
+  }
+  .breaker {
+    display: none;
+  }
+  .sketch-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+  }
+  .canvas-container {
+    width: 100%;
+    height: 100%;
+  }
+  .canvas-container canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+@font-face{
+  font-family: '';
+}
